@@ -24,7 +24,8 @@ fun AmphibianApp(modifier: Modifier = Modifier){
 
             HomeScreen(
                 amphibianUIState = amphibianViewModel.amphibianUIState,
-                retryAction = { amphibianViewModel::getAmphibians})
+                retryAction = amphibianViewModel::getAmphibians
+            )
         }
     }
 }
