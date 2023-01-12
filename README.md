@@ -23,7 +23,7 @@ The application requires:
 * Target SDK: 33 (Android 11+)
 
 ## Screenshots
-<img src=screenshots/Main1.png width = "300"><img src=screenshots/Main2.png width = "300">
+<img src=screenshots/Main1.png width = "300">   <img src=screenshots/Main2.png width = "300">
 
 
 
