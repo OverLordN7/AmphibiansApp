@@ -13,6 +13,7 @@ import com.example.amphibiansapp.ui.ui.screens.HomeScreen
 fun AmphibianApp(modifier: Modifier = Modifier){
     Scaffold(
         modifier = modifier.fillMaxSize(),
+        topBar = { TopAppBar(title = { Text(text = "Amphibians")})}
     ) {
         Surface(
             modifier = Modifier
