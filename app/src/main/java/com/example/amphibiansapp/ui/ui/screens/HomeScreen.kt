@@ -13,6 +13,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
@@ -68,14 +71,23 @@ fun AmphibianCard(
 ) {
     Card(
         modifier = modifier
-            .padding(4.dp)
+            .padding(8.dp)
             .fillMaxWidth()
             .aspectRatio(1f),
         elevation = 8.dp
     ) {
-        Column(modifier = Modifier) {
-            Text(text = amphibian.name)
-            Text(text = amphibian.description)
+        Column(modifier = Modifier,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = "${amphibian.name} (${amphibian.type})",
+                modifier = Modifier, fontWeight = FontWeight.Bold
+            )
+            Text(
+                text = amphibian.description,
+                textAlign = TextAlign.Justify,
+                modifier = Modifier.padding(16.dp)
+            )
             AsyncImage(
                 model = ImageRequest.Builder(context = LocalContext.current)
                     .data(amphibian.imageRes)
@@ -83,7 +95,9 @@ fun AmphibianCard(
                     .build(),
                 error = painterResource(id = R.drawable.ic_broken_image),
                 placeholder = painterResource(id = R.drawable.loading_img),
-                contentDescription = "Amphibian Photo"
+                contentDescription = "Amphibian Photo",
+                modifier = Modifier.fillMaxWidth(),
+                contentScale = ContentScale.FillBounds
             )
         }
     }
